@@ -1,14 +1,19 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Search, Filter } from 'lucide-react';
+import { Search, Filter, ShoppingCart } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 import { foodItems } from '@/data/indianFoodData';
 import AllMenuCard from '@/components/AllMenuCard';
+import { useCart } from '@/context/CartContext';
 
 const categories = ['All', 'Starters', 'Soups', 'Main Course', 'Breads'];
 
 export default function AllMenu() {
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [searchQuery, setSearchQuery] = useState('');
+  const navigate = useNavigate();
+  const { getTotalItems } = useCart();
+  const totalItems = getTotalItems();
 
   const filteredItems = foodItems.filter(item => {
     const matchesCategory = selectedCategory === 'All' || item.category === selectedCategory;
@@ -108,6 +113,24 @@ export default function AllMenu() {
             <p className="text-slate-600">
               Try adjusting your search or filter criteria
             </p>
+          </motion.div>
+        )}
+
+        {/* Ready to Order Button */}
+        {totalItems > 0 && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4 }}
+            className="mt-12 text-center"
+          >
+            <button
+              onClick={() => navigate('/cart')}
+              className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-orange-600 to-orange-500 hover:from-orange-700 hover:to-orange-600 text-white font-bold text-lg rounded-xl transition-all shadow-lg hover:shadow-xl transform hover:scale-105"
+            >
+              <ShoppingCart className="w-6 h-6" />
+              I'm Ready - View Cart ({totalItems} {totalItems === 1 ? 'item' : 'items'})
+            </button>
           </motion.div>
         )}
       </div>

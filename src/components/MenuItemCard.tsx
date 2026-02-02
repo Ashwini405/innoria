@@ -14,6 +14,7 @@ export default function MenuItemCard({ item, accentColor }: MenuItemCardProps) {
   const { addToCart } = useCart();
   const navigate = useNavigate();
   const [isAdding, setIsAdding] = useState(false);
+  const [imageError, setImageError] = useState(false);
 
   const handleAddToCart = (e: React.MouseEvent) => {
     e.stopPropagation();
@@ -24,6 +25,10 @@ export default function MenuItemCard({ item, accentColor }: MenuItemCardProps) {
 
   const handleCardClick = () => {
     navigate(`/item/${item.id}`);
+  };
+
+  const handleImageError = () => {
+    setImageError(true);
   };
 
   return (
@@ -37,12 +42,19 @@ export default function MenuItemCard({ item, accentColor }: MenuItemCardProps) {
       }}
     >
       <div className="relative h-48 overflow-hidden">
-        <img
-          src={item.image}
-          alt={item.name}
-          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-          loading="lazy"
-        />
+        {!imageError ? (
+          <img
+            src={item.image}
+            alt={item.name}
+            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+            loading="lazy"
+            onError={handleImageError}
+          />
+        ) : (
+          <div className="w-full h-full bg-slate-700 flex items-center justify-center">
+            <span className="text-slate-400 text-sm">Image not available</span>
+          </div>
+        )}
         <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/50 to-transparent" />
       </div>
 

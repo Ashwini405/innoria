@@ -10,8 +10,8 @@ export default function About() {
           animate={{ opacity: 1, y: 0 }}
           className="text-center mb-12"
         >
-          <h1 className="text-5xl font-bold text-slate-900 mb-4">About FoodieHub</h1>
-          <p className="text-xl text-slate-600">Bringing authentic Indian flavors to your doorstep</p>
+          <h1 className="text-5xl font-bold text-slate-900 mb-4">About Gourmet Delights</h1>
+          <p className="text-xl text-slate-600">Fine Dining Experience - Bringing authentic Indian flavors to your doorstep</p>
         </motion.div>
 
         <motion.div
@@ -25,7 +25,7 @@ export default function About() {
             <h2 className="text-2xl font-bold text-slate-900">Our Story</h2>
           </div>
           <p className="text-slate-700 leading-relaxed mb-4">
-            Founded in 2020, FoodieHub has been on a mission to deliver authentic Indian cuisine with
+            Founded in 2020, Gourmet Delights has been on a mission to deliver authentic Indian cuisine with
             the convenience of modern technology. We partner with the finest restaurants to bring you
             traditional recipes prepared with fresh ingredients and genuine passion.
           </p>

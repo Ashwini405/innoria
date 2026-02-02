@@ -29,7 +29,7 @@ export default function Navbar() {
           <Link to="/home" className="flex items-center gap-2 group">
             <UtensilsCrossed className="w-8 h-8 text-orange-600 group-hover:rotate-12 transition-transform" />
             <span className="text-2xl font-semibold text-slate-900 tracking-tight">
-              FoodieHub
+              Gourmet Delights
             </span>
           </Link>
 

@@ -1,5 +1,6 @@
 import { CircleDot, Soup, UtensilsCrossed, Sandwich, ShoppingCart } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import MenuColumn from '@/components/MenuColumn';
 import { foodItems } from '@/data/indianFoodData';
 import { useCart } from '@/context/CartContext';
@@ -45,18 +46,36 @@ export default function Home() {
           ))}
         </div>
 
-        {/* I'm Full Button */}
-        {totalItems > 0 && (
-          <div className="mt-12 text-center">
-            <button
-              onClick={handleGoToCart}
-              className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-orange-600 to-orange-500 hover:from-orange-700 hover:to-orange-600 text-white font-bold text-lg rounded-xl transition-all shadow-lg hover:shadow-xl transform hover:scale-105"
+        {/* Always Visible Cart Button */}
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.8, duration: 0.6 }}
+          className="mt-12 text-center"
+        >
+          <motion.button
+            onClick={handleGoToCart}
+            whileHover={{ scale: 1.05, rotate: 1 }}
+            whileTap={{ scale: 0.95 }}
+            className="group relative inline-flex items-center gap-3 px-10 py-5 bg-gradient-to-r from-purple-600 via-pink-600 to-orange-600 hover:from-purple-700 hover:via-pink-700 hover:to-orange-700 text-white font-bold text-xl rounded-2xl transition-all shadow-2xl hover:shadow-purple-500/25 overflow-hidden"
+          >
+            <div className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            <motion.div
+              animate={{ rotate: [0, 10, -10, 0] }}
+              transition={{ duration: 2, repeat: Infinity, repeatDelay: 3 }}
             >
-              <ShoppingCart className="w-6 h-6" />
-              I'm Full - View Cart ({totalItems} {totalItems === 1 ? 'item' : 'items'})
-            </button>
-          </div>
-        )}
+              <ShoppingCart className="w-7 h-7" />
+            </motion.div>
+            <span className="relative z-10">
+              {totalItems > 0 ? `🛒 My Feast (${totalItems})` : '🍽️ Start My Feast'}
+            </span>
+            <motion.div
+              className="absolute -top-1 -right-1 w-3 h-3 bg-yellow-400 rounded-full"
+              animate={{ scale: [1, 1.2, 1] }}
+              transition={{ duration: 1.5, repeat: Infinity }}
+            />
+          </motion.button>
+        </motion.div>
       </div>
     </div>
   );

@@ -39,9 +39,15 @@ export default function MenuColumn({ category, icon: Icon, items, accentColor, i
         className="flex-1 overflow-y-auto p-4 space-y-4 bg-slate-900/40 rounded-b-2xl border-2 border-t-0 backdrop-blur-sm scrollbar-custom"
         style={{ borderColor: `${accentColor}30` }}
       >
-        {items.map((item) => (
-          <MenuItemCard key={item.id} item={item} accentColor={accentColor} />
-        ))}
+        <motion.div
+          animate={{ y: [0, -100] }}
+          transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+          className="space-y-4"
+        >
+          {[...items, ...items].map((item, itemIndex) => (
+            <MenuItemCard key={`${item.id}-${itemIndex}`} item={item} accentColor={accentColor} />
+          ))}
+        </motion.div>
       </div>
     </motion.div>
   );

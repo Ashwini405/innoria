@@ -22,7 +22,7 @@ export const foodItems: FoodItem[] = [
     name: 'Paneer Tikka',
     price: 299,
     category: 'Starters',
-    image: 'https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8?w=600&q=80',
+    image: 'https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?w=600&q=80',
     description: 'Marinated cottage cheese grilled to perfection'
   },
   {
@@ -82,7 +82,7 @@ export const foodItems: FoodItem[] = [
     name: 'Butter Chicken',
     price: 449,
     category: 'Main Course',
-    image: 'https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?w=600&q=80',
+    image: 'https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=600&q=80',
     description: 'Tender chicken in rich creamy tomato gravy'
   },
   {
@@ -124,7 +124,7 @@ export const foodItems: FoodItem[] = [
     name: 'Garlic Naan',
     price: 79,
     category: 'Breads',
-    image: 'https://images.unsplash.com/photo-1601050690597-df0568f70950?w=600&q=80',
+    image: 'https://images.unsplash.com/photo-1628840042765-356cda07504e?w=600&q=80',
     description: 'Soft flatbread topped with garlic and butter'
   },
   {
@@ -137,10 +137,10 @@ export const foodItems: FoodItem[] = [
   },
   {
     id: '16',
-    name: 'Tandoori Roti',
+    name: 'Burger',
     price: 49,
     category: 'Breads',
-    image: 'https://images.unsplash.com/photo-1619519891019-ef8ec6d4e161?w=600&q=80',
+    image: 'https://images.unsplash.com/photo-1586190848861-99aa4a171e90?w=600&q=80',
     description: 'Whole wheat flatbread from the tandoor'
   },
   {
